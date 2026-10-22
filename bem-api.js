@@ -10,7 +10,7 @@
   });
 
   const DEPARTEMEN = {
-    relasi: 'Departemen Relasi', advokasi: 'Departemen Advokasi', minat: 'Departemen Minat Bakat',
+    relasi: 'Departemen Riset dan Inovasi', advokasi: 'Departemen Advokasi', minat: 'Departemen Minat Bakat',
     kominfo: 'Departemen Kominfo', keorganisasian: 'Departemen Keorganisasian'
   };
   const STATUS_VALID = ['form', 'wawancara', 'selesai', 'lulus', 'tidak_lulus'];
