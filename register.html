@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daftar Akun — BEM FITS IPI Garut</title>
+<link rel="icon" type="image/png" href="logo-bem.png">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="login.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+<div class="login-wrap">
+  <aside class="login-side"><div class="side-orbs"><div class="s-orb s-1"></div><div class="s-orb s-2"></div></div>
+    <a href="index.html#/beranda" class="side-brand"><img src="logo-bem.png" alt="Logo BEM FITS"><div><strong>BEM FITS</strong><span>IPI Garut</span></div></a>
+    <div class="side-content"><h1>Buat Akun<br><span class="grad-teal">Pengguna</span></h1><p>Daftar untuk mengakses layanan mahasiswa BEM FITS IPI Garut.</p><ul class="side-points"><li><span>✓</span> Pendaftaran akun gratis</li><li><span>✓</span> Akses layanan mahasiswa</li><li><span>✓</span> Akun aman dengan kata sandi terenkripsi</li></ul></div>
+    <p class="side-foot">© 2026 BEM FITS IPI Garut</p>
+  </aside>
+  <main class="login-main"><div class="login-card">
+    <a href="index.html#/beranda" class="back-link">← Kembali ke Beranda</a>
+    <div class="login-head"><img src="logo-bem.png" alt="Logo BEM FITS" class="login-logo"><h2>Daftar Akun</h2><p>Isi data di bawah untuk membuat akun pengguna biasa.</p></div>
+    <form id="registerForm" class="login-form" novalidate>
+      <div class="field"><label for="nama">Nama lengkap</label><div class="input-wrap"><input id="nama" name="nama" type="text" autocomplete="name" required maxlength="100" placeholder="Nama lengkap"></div></div>
+      <div class="field"><label for="nim">NIM</label><div class="input-wrap"><input id="nim" name="nim" type="text" autocomplete="username" required maxlength="40" placeholder="Nomor induk mahasiswa"></div></div>
+      <div class="field"><label for="email">Email</label><div class="input-wrap"><input id="email" name="email" type="email" autocomplete="email" required maxlength="190" placeholder="nama@email.com"></div></div>
+      <div class="field"><label for="password">Kata sandi (minimal 8 karakter)</label><div class="input-wrap"><input id="password" name="password" type="password" autocomplete="new-password" required minlength="8" placeholder="Buat kata sandi"></div></div>
+      <div class="field"><label for="confirmPassword">Ulangi kata sandi</label><div class="input-wrap"><input id="confirmPassword" type="password" autocomplete="new-password" required minlength="8" placeholder="Ulangi kata sandi"></div></div>
+      <small id="registerMessage" role="status" style="display:block;margin:8px 0;color:var(--text,#333);"></small>
+      <button type="submit" class="btn btn-primary full" id="registerButton">Buat Akun</button>
+      <div class="login-note">Sudah punya akun? <a href="login.html"><strong>Login di sini</strong></a></div>
+    </form>
+  </div></main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="bem-api.js?v=sb2"></script>
+<script>
+const form = document.getElementById('registerForm');
+const message = document.getElementById('registerMessage');
+const button = document.getElementById('registerButton');
+form.addEventListener('submit', async (event) => {
+  event.preventDefault(); message.textContent = '';
+  const data = { nama: form.nama.value.trim(), nim: form.nim.value.trim(), email: form.email.value.trim(), password: form.password.value };
+  if (data.password !== document.getElementById('confirmPassword').value) { message.textContent = 'Konfirmasi kata sandi tidak sama.'; return; }
+  if (data.password.length < 8) { message.textContent = 'Kata sandi minimal 8 karakter.'; return; }
+  button.disabled = true; button.textContent = 'Membuat akun...';
+  try {
+    const result = await window.bem.register(data);
+    message.textContent = result.needs_confirm ? 'Akun dibuat. Periksa emailmu untuk konfirmasi sebelum login.' : 'Akun berhasil dibuat. Mengalihkan ke halaman login...';
+    form.reset(); setTimeout(() => window.location.href = 'login.html' + (new URLSearchParams(location.search).get('redirect') === 'oprec' ? '?redirect=oprec' : ''), 1200);
+  } catch (error) { message.textContent = error.message || 'Server tidak dapat dihubungi.'; }
+  finally { button.disabled = false; button.textContent = 'Buat Akun'; }
+});
+</script>
+</body></html>

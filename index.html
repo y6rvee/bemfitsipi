@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEM FITS IPI Garut — Badan Eksekutif Mahasiswa Fakultas Ilmu Terapan</title>
+<link rel="icon" type="image/png" href="logo-bem.png">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<base target="">
+</head>
+<body>
+
+<!-- ===== LOADER ===== -->
+<div class="loader" id="loader">
+  <div class="loader-logo"><img src="logo-bem.png" alt="BEM FITS IPI Garut"></div>
+  <div class="loader-bar"><span></span></div>
+</div>
+
+<!-- ===== CURSOR GLOW ===== -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" id="navbar">
+  <a href="#/beranda" class="nav-brand" data-link>
+    <img src="logo-bem.png" alt="Logo BEM FITS">
+    <div class="brand-text">
+      <strong>BEM FITS</strong>
+      <span>IPI Garut</span>
+    </div>
+  </a>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="#/beranda" data-nav="beranda" data-link class="active">Beranda</a>
+    <a href="#/profil" data-nav="profil" data-link>Profil</a>
+    <a href="#/berita" data-nav="berita" data-link>Berita</a>
+    <a href="#/layanan" data-nav="layanan" data-link>Layanan Mahasiswa</a>
+    <a href="#/kepengurusan" data-nav="kepengurusan" data-link>Kepengurusan</a>
+    <a href="#/oprec" data-nav="oprec" data-link>Open Recruitment</a>
+    <a href="admin.html" data-nav="admin" id="navAdminLink" hidden>Dashboard Admin</a>
+  </nav>
+
+  <div class="nav-actions">
+    <div class="nav-auth">
+      <a href="#/profil" id="profileName" class="user-only profile-nav-link" style="display:none;" aria-label="Profil akun"></a>
+      <a href="login.html" id="loginNavLink" class="btn-login guest-only">Login</a>
+      <button id="btnLogoutAction" class="user-only" style="display:none;" onclick="logout()">Logout</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ================= PAGE: BERANDA ================= -->
+<main id="page-beranda" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="pulse-dot"></span>
+        Kabinet Tahun Akademik 2025/2026
+      </div>
+      <h1 class="reveal d1">Bergerak <span class="grad">Bersama</span>,<br>Mengabdi dengan <span class="grad-teal">Hati</span></h1>
+      <p class="reveal d2">Badan Eksekutif Mahasiswa Fakultas Ilmu Terapan dan Sains Institut Pendidikan Indonesia Garut — wadah aspirasi, karya, dan pengabdian mahasiswa untuk kampus yang lebih baik.</p>
+      <div class="hero-cta reveal d3">
+        <a href="#/profil" data-link class="btn btn-primary">Kenali Kami
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#/layanan" data-link class="btn btn-ghost">Layanan Mahasiswa</a>
+      </div>
+      <div class="hero-stats reveal d4">
+        <div class="stat"><span class="counter" data-target="7">0</span><small>Bidang Kemenko</small></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="counter" data-target="27">0</span><small>Program Kerja</small></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="counter" data-target="900">0</span><small>Mahasiswa Terlayani</small></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal d3">
+      <div class="logo-ring">
+        <div class="ring ring-outer"></div>
+        <div class="ring ring-inner"></div>
+        <img src="logo-bem.png" alt="Logo BEM FITS IPI Garut">
+      </div>
+    </div>
+    <a class="scroll-hint" href="#tentang" onclick="return false;">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- TENTANG SINGKAT -->
+  <section class="section" id="tentang">
+    <div class="section-head reveal">
+      <span class="tag">Tentang Kami</span>
+      <h2>Satu Wadah, <span class="grad">Banyak Karya</span></h2>
+      <p>BEM FITS IPI Garut hadir sebagai jembatan antara mahasiswa dan kampus, menghadirkan program kerja yang aspiratif dan solutif.</p>
+    </div>
+    <div class="cards-3">
+      <article class="card feature reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Aspiratif</h3>
+        <p>Menampung, mengawal, dan menyalurkan aspirasi mahasiswa kepada pihak kampus secara terstruktur dan transparan.</p>
+      </article>
+      <article class="card feature reveal d1">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <h3>Kolaboratif</h3>
+        <p>Membangun kemitraan dengan HMJ, UKM, dan organisasi kemahasiswaan lain untuk mewujudkan sinergi kampus.</p>
+      </article>
+      <article class="card feature reveal d2">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Pengabdian</h3>
+        <p>Menumbuhkan kepedulian sosial mahasiswa melalui kegiatan bakti, advokasi, dan pemberdayaan masyarakat.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Aspiratif</span><i>✦</i><span>Kolaboratif</span><i>✦</i><span>Integritas</span><i>✦</i><span>Peduli</span><i>✦</i><span>Inovatif</span><i>✦</i>
+      <span>Aspiratif</span><i>✦</i><span>Kolaboratif</span><i>✦</i><span>Integritas</span><i>✦</i><span>Peduli</span><i>✦</i><span>Inovatif</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- BERITA TERBARU PREVIEW -->
+  <section class="section">
+    <div class="section-head reveal">
+      <span class="tag">Kabar Kampus</span>
+      <h2>Berita <span class="grad-teal">Terbaru</span></h2>
+    </div>
+        <div class="admin-bar reveal" id="adminBar" hidden>
+      <div>
+        <strong>⚙️ Mode Admin Aktif</strong>
+        <span>Anda dapat menambah & menghapus berita di halaman ini.</span>
+      </div>
+      <button class="btn btn-light btn-sm" id="btnAddNews">+ Tambah Berita</button>
+    </div>
+    <div class="news-grid" id="newsPreview"></div>
+    <div class="center reveal">
+      <a href="#/berita" data-link class="btn btn-outline">Lihat Semua Berita</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="cta-band reveal">
+      <div>
+        <h2>Punya Aspirasi untuk Kampus?</h2>
+        <p>Sampaikan ide, kritik, dan saran kamu melalui kanal aspirasi resmi BEM FITS IPI Garut.</p>
+      </div>
+      <a href="#/layanan" data-link class="btn btn-light">Sampaikan Aspirasi</a>
+    </div>
+  </section>
+</main>
+
+<!-- ================= PAGE: PROFIL ================= -->
+<main id="page-profil" class="page is-maintenance">
+  <!-- MAINTENANCE: hapus class "is-maintenance" dan blok <section class="maintenance"> ini untuk mengembalikan halaman -->
+  <section class="maintenance" role="status" aria-live="polite">
+    <div class="maint-bg"><span class="orb orb-1"></span><span class="orb orb-2"></span></div>
+    <div class="maint-inner">
+      <div class="maint-logo" aria-hidden="true">
+        <span class="maint-ring"></span>
+        <img src="logo-bem.png" alt="">
+        <svg class="maint-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <svg class="maint-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <span class="tag">Profil Organisasi</span>
+      <h1>Halaman Profil <span class="grad">Sedang Maintenance</span></h1>
+      <p>Halaman ini sedang kami perbaiki. Halaman akan segera dibuka kembali. Terima kasih sudah menunggu.</p>
+      <div class="maint-bar" aria-hidden="true"><span></span></div>
+      <a href="#/beranda" data-link class="btn btn-light">Kembali ke Beranda</a>
+    </div>
+  </section>
+  <section class="page-hero">
+    <span class="tag">Profil Organisasi</span>
+    <h1>BEM FITS <span class="grad">IPI Garut</span></h1>
+    <p>Badan Eksekutif Mahasiswa Fakultas Ilmu Terapan Institut Pendidikan Indonesia Garut</p>
+  </section>
+
+  <section class="section">
+    <div class="split">
+      <div class="split-text reveal">
+        <span class="tag">Visi</span>
+        <h2>Visi <span class="grad">Organisasi</span></h2>
+        <p class="quote">"Menjadikan BEM FITS IPI Garut sebagai organisasi yang aspiratif, kolaboratif, dan inovatif dalam mewujudkan mahasiswa Fakultas Ilmu Terapan yang berkarakter, unggul, dan peduli terhadap lingkungan sosial."</p>
+      </div>
+      <div class="split-card reveal d1">
+        <img src="logo-bem.png" alt="Logo BEM FITS IPI Garut" class="profile-logo">
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-head reveal">
+      <span class="tag">Arah Gerak</span>
+      <h2>Misi <span class="grad-teal">Organisasi</span></h2>
+    </div>
+    <div class="misi-grid">
+      <div class="misi-item reveal"><span>01</span><p>Meningkatkan fungsi perwakilan mahasiswa sebagai penampung dan penyalur aspirasi secara terstruktur.</p></div>
+      <div class="misi-item reveal d1"><span>02</span><p>Membangun sinergi dengan senat, HMJ, UKM, dan seluruh civitas akademika Fakultas Ilmu Terapan.</p></div>
+      <div class="misi-item reveal d2"><span>03</span><p>Menyelenggarakan program kerja yang edukatif, kreatif, dan solutif bagi mahasiswa FITS.</p></div>
+      <div class="misi-item reveal"><span>04</span><p>Mengembangkan bakat dan minat mahasiswa melalui kegiatan pengembangan keilmuan dan kepemimpinan.</p></div>
+      <div class="misi-item reveal d1"><span>05</span><p>Menumbuhkan jiwa sosial dan kepedulian terhadap masyarakat melalui kegiatan pengabdian.</p></div>
+      <div class="misi-item reveal d2"><span>06</span><p>Memperkuat digitalisasi pelayanan dan informasi kemahasiswaan yang transparan.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head reveal">
+      <span class="tag">Nilai Kami</span>
+      <h2>Nilai <span class="grad">Dasar</span></h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal"><div class="value-icon">🤝</div><h3>Integritas</h3><p>Jujur, konsisten, dan bertanggung jawab dalam setiap keputusan.</p></div>
+      <div class="value-card reveal d1"><div class="value-icon">💡</div><h3>Inovasi</h3><p>Berani berpikir kreatif dan memberikan solusi baru bagi mahasiswa.</p></div>
+      <div class="value-card reveal d2"><div class="value-icon">🤲</div><h3>Kolaborasi</h3><p>Terbuka bekerja sama untuk mencapai tujuan bersama.</p></div>
+      <div class="value-card reveal d3"><div class="value-icon">⚡</div><h3>Proaktif</h3><p>Sigap merespons kebutuhan dan dinamika mahasiswa.</p></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= PAGE: BERITA ================= -->
+<main id="page-berita" class="page">
+  <section class="page-hero">
+    <span class="tag">Kabar & Informasi</span>
+    <h1>Berita <span class="grad">BEM FITS</span></h1>
+    <p>Ikuti terus kegiatan, agenda, dan prestasi terbaru dari keluarga besar BEM FITS IPI Garut.</p>
+  </section>
+  <section class="section">
+    <div class="news-filter reveal" id="newsFilter">
+      <button class="filter-btn active" data-filter="semua">Semua</button>
+      <button class="filter-btn" data-filter="kegiatan">Kegiatan</button>
+      <button class="filter-btn" data-filter="pengumuman">Pengumuman</button>
+      <button class="filter-btn" data-filter="prestasi">Prestasi</button>
+    </div>
+    <div class="news-grid" id="newsGrid"></div>
+  </section>
+</main>
+
+<!-- ================= PAGE: LAYANAN ================= -->
+<main id="page-layanan" class="page is-maintenance">
+  <!-- MAINTENANCE: hapus class "is-maintenance" dan blok <section class="maintenance"> ini untuk mengembalikan halaman -->
+  <section class="maintenance" role="status" aria-live="polite">
+    <div class="maint-bg"><span class="orb orb-1"></span><span class="orb orb-2"></span></div>
+    <div class="maint-inner">
+      <div class="maint-logo" aria-hidden="true">
+        <span class="maint-ring"></span>
+        <img src="logo-bem.png" alt="">
+        <svg class="maint-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <svg class="maint-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <span class="tag">Untuk Mahasiswa</span>
+      <h1>Halaman Layanan Mahasiswa <span class="grad">Sedang Maintenance</span></h1>
+      <p>Halaman ini sedang kami perbaiki. Halaman akan segera dibuka kembali. Terima kasih sudah menunggu.</p>
+      <div class="maint-bar" aria-hidden="true"><span></span></div>
+      <a href="#/beranda" data-link class="btn btn-light">Kembali ke Beranda</a>
+    </div>
+  </section>
+  <section class="page-hero">
+    <span class="tag">Untuk Mahasiswa</span>
+    <h1>Layanan <span class="grad-teal">Mahasiswa</span></h1>
+    <p>Program unggulan dan layanan resmi BEM FITS IPI Garut untuk mendukung kebutuhan akademik dan kemahasiswaanmu.</p>
+  </section>
+  <section class="section">
+    <div class="services-grid">
+      <article class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <h3>Kanal Aspirasi</h3>
+        <p>Sampaikan aspirasi, kritik, dan saranmu terkait perkuliahan dan fasilitas kampus. Setiap aspirasi akan dijawab maksimal 3×24 jam.</p>
+        <button class="btn btn-primary btn-sm service-action" data-service="Kanal Aspirasi">Ajukan Aspirasi</button>
+      </article>
+      <article class="service-card reveal d1">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3>Bank Materi</h3>
+        <p>Koleksi modul, soal latihan, dan materi kuliah dari berbagai program studi di Fakultas Ilmu Terapan, dikurasi oleh tim akademik.</p>
+        <button class="btn btn-primary btn-sm service-action" data-service="Bank Materi">Akses Materi</button>
+      </article>
+      <article class="service-card reveal d2">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Ruang Konsultasi</h3>
+        <p>Layanan konsultasi akademik dan kemahasiswaan bersama pengurus BEM serta dosen pendamping untuk membantu permasalahanmu.</p>
+        <button class="btn btn-primary btn-sm service-action" data-service="Ruang Konsultasi">Jadwalkan Konsultasi</button>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <h3>Agenda & Event</h3>
+        <p>Informasi resmi seminar, workshop, lomba, dan kegiatan kemahasiswaan di lingkungan Fakultas Ilmu Terapan IPI Garut.</p>
+        <button class="btn btn-primary btn-sm service-action" data-service="Agenda & Event">Lihat Agenda</button>
+      </article>
+      <article class="service-card reveal d1">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Advokasi Mahasiswa</h3>
+        <p>Perlindungan dan pendampingan bagi mahasiswa yang memerlukan bantuan terkait hak akademik maupun non-akademik.</p>
+        <button class="btn btn-primary btn-sm service-action" data-service="Advokasi Mahasiswa">Minta Pendampingan</button>
+      </article>
+      <article class="service-card reveal d2">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Surat Menyurat</h3>
+        <p>Pengurusan surat keterangan, proposal kegiatan, dan surat pengantar organisasi dengan alur yang cepat dan transparan.</p>
+        <button class="btn btn-primary btn-sm service-action" data-service="Surat Menyurat">Ajukan Surat</button>
+      </article>
+    </div>
+  </section>
+</main>
+
+<!-- ================= PAGE: KEPENGURUSAN ================= -->
+<main id="page-kepengurusan" class="page is-maintenance">
+  <!-- MAINTENANCE: hapus class "is-maintenance" dan blok <section class="maintenance"> ini untuk mengembalikan halaman -->
+  <section class="maintenance" role="status" aria-live="polite">
+    <div class="maint-bg"><span class="orb orb-1"></span><span class="orb orb-2"></span></div>
+    <div class="maint-inner">
+      <div class="maint-logo" aria-hidden="true">
+        <span class="maint-ring"></span>
+        <img src="logo-bem.png" alt="">
+        <svg class="maint-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <svg class="maint-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <span class="tag">Struktur Organisasi</span>
+      <h1>Halaman Kepengurusan <span class="grad">Sedang Maintenance</span></h1>
+      <p>Halaman ini sedang kami perbaiki. Halaman akan segera dibuka kembali. Terima kasih sudah menunggu.</p>
+      <div class="maint-bar" aria-hidden="true"><span></span></div>
+      <a href="#/beranda" data-link class="btn btn-light">Kembali ke Beranda</a>
+    </div>
+  </section>
+  <section class="page-hero">
+    <span class="tag">Struktur Organisasi</span>
+    <h1>Kepengurusan <span class="grad">BEM FITS</span></h1>
+    <p>Periode 2025/2026 — Susunan pengurus Badan Eksekutif Mahasiswa Fakultas Ilmu Terapan IPI Garut.</p>
+  </section>
+
+  <section class="section">
+    <!-- Presiden & Wapres -->
+    <div class="top-leaders reveal">
+      <div class="leader-card" data-tilt>
+        <div class="leader-avatar grad-1">RA</div>
+        <h3>Moh Hadi Prayoga</h3>
+        <span class="leader-role">Ketua BEM</span>
+        <p>Pendidikan Teknologi Informasi</p>
+      </div>
+      <div class="connector"><span></span></div>
+      <div class="leader-card" data-tilt>
+        <div class="leader-avatar grad-2">SN</div>
+        <h3>Aziz P Suherman</h3>
+        <span class="leader-role">Wakil Ketua BEM</span>
+        <p>Sistem Informasi</p>
+      </div>
+    </div>
+
+    <!-- Bidang -->
+    <div class="section-head reveal" style="margin-top:70px">
+      <span class="tag">Bidang & Kemenko</span>
+      <h2>Kabinet <span class="grad-teal">Bersinergi</span></h2>
+    </div>
+    <div class="dept-grid" id="deptGrid"></div>
+  </section>
+</main>
+
+<!-- ================= PAGE: OPEN RECRUITMENT ================= -->
+<main id="page-oprec" class="page">
+  <section class="page-hero">
+    <span class="tag">Periode Kepengurusan 2026–2027</span>
+    <h1>Open Recruitment <span class="grad">Pengurus BEM FITS</span></h1>
+    <p>BEM FITS IPI Garut membuka kesempatan bagi mahasiswa aktif Fakultas Ilmu Terapan dan Sains untuk bergabung menjadi bagian dari kepengurusan periode 2026–2027. Isi formulir dengan data yang benar dan lengkapi berkas sesuai persyaratan.</p>
+  </section>
+
+  <section class="section">
+    <div class="oprec-wrap">
+      <div class="oprec-success" id="oprecSuccess" hidden>
+        <div class="success-check">✓</div>
+        <h2>Pendaftaran Terkirim!</h2>
+        <p>Formulir dan berkas pendaftaran kamu sudah berhasil disimpan ke database. Simpan konfirmasi ini; informasi tahapan seleksi selanjutnya akan disampaikan melalui kontak yang kamu cantumkan.</p>
+        <div class="center" style="display:flex;gap:12px;justify-content:center">
+          <button class="btn btn-outline" id="oprecAgain">Daftar Lagi</button>
+          <a href="#/beranda" data-link class="btn btn-primary">Kembali ke Beranda</a>
+        </div>
+      </div>
+
+      <!-- GERBANG: wajib login & pendaftaran harus dibuka -->
+      <div class="oprec-gate" id="oprecChecking"><p>Memeriksa status pendaftaran…</p></div>
+      <div class="oprec-gate" id="oprecLoginGate" hidden>
+        <h2>Login Dahulu untuk Mendaftar</h2>
+        <p>Formulir Open Recruitment hanya bisa diisi setelah kamu login dengan akun mahasiswa. Belum punya akun? Aktivasi akun terlebih dahulu, lalu kembali ke halaman ini.</p>
+        <div class="gate-actions">
+          <a href="login.html?redirect=oprec" class="btn btn-primary">Login untuk Mendaftar</a>
+          <a href="register.html?redirect=oprec" class="btn btn-outline">Aktivasi Akun</a>
+        </div>
+      </div>
+      <div class="oprec-track" id="oprecStatusGate" hidden></div>
+      <div class="oprec-gate closed" id="oprecClosedGate" hidden>
+        <h2>Pendaftaran Ditutup</h2>
+        <p>Open Recruitment Pengurus BEM FITS saat ini tidak menerima pendaftaran. Pantau terus halaman Berita dan media sosial BEM FITS untuk informasi pembukaan berikutnya.</p>
+        <div class="gate-actions"><a href="#/berita" data-link class="btn btn-outline">Lihat Berita</a><a href="#/beranda" data-link class="btn btn-primary">Kembali ke Beranda</a></div>
+      </div>
+
+      <form id="oprecForm" class="oprec-form" hidden>
+        <!-- A. IDENTITAS DIRI -->
+        <fieldset class="form-section">
+          <h3>A. Identitas Diri</h3>
+          <div class="form-grid">
+            <div class="f-field span-2"><label>1. Nama Lengkap <b class="req">*</b></label><input type="text" name="nama" required placeholder="Nama lengkap sesuai KTM"></div>
+            <div class="f-field"><label>2. NIM <b class="req">*</b></label><input type="text" name="nim" required inputmode="numeric" pattern="[0-9]{6,20}" maxlength="20" autocomplete="off" data-digits title="NIM hanya boleh berisi angka" placeholder="Contoh: 2345100001"><small class="f-hint">Hanya angka.</small></div>
+            <div class="f-field"><label>3. Program Studi <b class="req">*</b></label>
+              <select name="prodi" required>
+                <option value="">Pilih program studi</option>
+                <option>Pendidikan Teknologi Informasi (PTI)</option>
+                <option>Sistem Informasi</option>
+                <option>Pendidikan Biologi</option>
+                <option>Pendidikan Matematika</option>
+                <option>Pendidikan Fisika</option>
+              </select></div>
+            <div class="f-field"><label>4. Kelas <b class="req">*</b></label><input type="text" name="kelas" required placeholder="Contoh: PTI-4A"></div>
+            <div class="f-field"><label>5. Angkatan <b class="req">*</b></label><input type="text" name="angkatan" required placeholder="Contoh: 2024"></div>
+            <div class="f-field"><label>6. Nomor WhatsApp Aktif <b class="req">*</b></label><input type="tel" name="wa" required inputmode="numeric" pattern="[0-9]{9,15}" maxlength="15" autocomplete="off" data-digits title="Nomor WhatsApp hanya boleh berisi angka (9–15 digit)" placeholder="Contoh: 081234567890"><small class="f-hint">Hanya angka, tanpa spasi, tanda + atau tanda hubung.</small></div>
+            <div class="f-field"><label>7. Alamat Email Aktif <b class="req">*</b></label><input type="email" name="email" required placeholder="nama@email.com"></div>
+          </div>
+        </fieldset>
+
+        <!-- B. PEMENUHAN PERSYARATAN -->
+        <fieldset class="form-section">
+          <h3>B. Pemenuhan Persyaratan</h3>
+          <div class="f-field"><label>8. Apakah Anda merupakan mahasiswa aktif FITS IPI Garut? <b class="req">*</b></label>
+            <div class="radio-row"><label class="radio-item"><input type="radio" name="aktif" value="Ya" required> Ya</label><label class="radio-item"><input type="radio" name="aktif" value="Tidak"> Tidak</label></div></div>
+          <div class="f-field"><label>9. Apakah Anda telah mengikuti PKKMB dan memiliki sertifikat? <b class="req">*</b></label>
+            <div class="radio-row"><label class="radio-item"><input type="radio" name="pkkmb" value="Ya" required> Ya</label><label class="radio-item"><input type="radio" name="pkkmb" value="Tidak"> Tidak</label></div></div>
+          <div class="f-field"><label>10. Apakah Anda telah mengikuti PO, LKM, atau kegiatan sejenis dan memiliki sertifikat? <b class="req">*</b></label>
+            <div class="radio-row"><label class="radio-item"><input type="radio" name="polkm" value="Ya" required> Ya</label><label class="radio-item"><input type="radio" name="polkm" value="Tidak"> Tidak</label></div></div>
+          <div class="f-field"><label>11. Apakah Anda memiliki pengalaman berorganisasi di HMPS minimal satu tahun? <b class="req">*</b></label>
+            <div class="radio-row"><label class="radio-item"><input type="radio" name="hmps" value="Ya" required> Ya</label><label class="radio-item"><input type="radio" name="hmps" value="Tidak"> Tidak</label></div></div>
+          <div class="f-field"><label>12. Apakah Anda pernah mengikuti program magang di BEM FITS IPI? <b class="req">*</b></label>
+            <div class="radio-row"><label class="radio-item"><input type="radio" name="magang" value="Ya" required> Ya</label><label class="radio-item"><input type="radio" name="magang" value="Tidak"> Tidak</label></div></div>
+          <div class="f-field"><label>13. Jika pernah, tuliskan nama organisasi, jabatan, dan periode keikutsertaan Anda. <b class="req">*</b></label>
+            <textarea name="pengalaman" rows="3" required placeholder="Contoh: HMPS PTI — Staff Departemen PSDM (2024–2025)"></textarea></div>
+        </fieldset>
+
+        <!-- C. PILIHAN DEPARTEMEN -->
+        <fieldset class="form-section">
+          <h3>C. Pilihan Departemen</h3>
+          <div class="form-grid">
+            <div class="f-field"><label>14. Pilihan Departemen Pertama <b class="req">*</b></label>
+              <select name="dept1" required>
+                <option value="">Pilih departemen</option>
+                <option value="relasi">Departemen Riset dan Inovasi</option>
+                <option value="advokasi">Departemen Advokasi</option>
+                <option value="minat">Departemen Minat Bakat</option>
+                <option value="kominfo">Departemen Kominfo</option>
+                <option value="keorganisasian">Departemen Keorganisasian</option>
+              </select></div>
+            <div class="f-field"><label>15. Pilihan Departemen Kedua <b class="req">*</b></label>
+              <select name="dept2" required>
+                <option value="">Pilih departemen</option>
+                <option value="relasi">Departemen Riset dan Inovasi</option>
+                <option value="advokasi">Departemen Advokasi</option>
+                <option value="minat">Departemen Minat Bakat</option>
+                <option value="kominfo">Departemen Kominfo</option>
+                <option value="keorganisasian">Departemen Keorganisasian</option>
+              </select></div>
+          </div>
+          <div class="f-field"><label>16. Apa alasan Anda memilih departemen tersebut? <b class="req">*</b></label><textarea name="alasan" rows="3" required></textarea></div>
+          <div class="f-field"><label>17. Kemampuan atau pengalaman apa yang Anda miliki dan relevan dengan departemen pilihan? <b class="req">*</b></label><textarea name="kemampuan" rows="3" required></textarea></div>
+        </fieldset>
+
+        <!-- D. BERKAS PENDAFTARAN -->
+        <fieldset class="form-section">
+          <h3>D. Berkas Pendaftaran <small>(format PDF, maksimal 5 MB per berkas, wajib diunggah semua)</small></h3>
+          <div class="form-grid">
+            <div class="f-field"><label>18. Bukti Mahasiswa Aktif / Identitas Mahasiswa <b class="req">*</b></label><input type="file" name="buktiAktif" accept=".pdf,application/pdf" data-max-mb="5" required></div>
+            <div class="f-field"><label>19. Sertifikat PKKMB <b class="req">*</b></label><input type="file" name="sertifPKKMB" accept=".pdf,application/pdf" data-max-mb="5" required></div>
+            <div class="f-field"><label>20. Sertifikat PO / LKM / Kegiatan Sejenis <b class="req">*</b></label><input type="file" name="sertifPOLKM" accept=".pdf,application/pdf" data-max-mb="5" required></div>
+            <div class="f-field"><label>21. Bukti Pengalaman HMPS ≥ 1 Tahun / Bukti Magang BEM <b class="req">*</b></label><input type="file" name="buktiOrg" accept=".pdf,application/pdf" data-max-mb="5" required></div>
+            <div class="f-field"><label>22. Curriculum Vitae (CV) <b class="req">*</b></label><input type="file" name="cv" accept=".pdf,application/pdf" data-max-mb="5" required></div>
+            <div class="f-field span-2"><label>23. Fakta Integritas (sudah diisi dan ditandatangani) <b class="req">*</b></label>
+              <div class="template-box">
+                <div class="template-text"><strong>Belum punya berkasnya?</strong><span>Unduh template Fakta Integritas, isi data diri, tanda tangani, lalu pindai/ubah ke PDF dan unggah di sini.</span></div>
+                <a class="btn btn-outline btn-sm" href="downloads/Fakta_Integritas_Calon_Pengurus_BEM_FITS_2026-2027.docx" download>⬇ Unduh Template (.docx)</a>
+              </div>
+              <input type="file" name="faktaIntegritas" accept=".pdf,application/pdf" data-max-mb="5" required></div>
+          </div>
+        </fieldset>
+
+        <!-- E. PERTANYAAN SELEKSI -->
+        <fieldset class="form-section">
+          <h3>E. Pertanyaan Seleksi</h3>
+          <div class="f-field"><label>24. Apa alasan Anda ingin bergabung menjadi pengurus BEM FITS IPI Garut? <b class="req">*</b></label><textarea name="alasanBEM" rows="3" required></textarea></div>
+          <div class="f-field"><label>25. Apa yang Anda ketahui tentang fungsi BEM FITS sebagai lembaga eksekutif mahasiswa tingkat fakultas? <b class="req">*</b></label><textarea name="fungsiBEM" rows="3" required></textarea></div>
+          <div class="f-field"><label>26. Kontribusi apa yang dapat Anda berikan apabila diterima menjadi pengurus? <b class="req">*</b></label><textarea name="kontribusi" rows="3" required></textarea></div>
+          <div class="f-field"><label>27. Bagaimana cara Anda membagi waktu antara kegiatan akademik, pribadi, dan organisasi? <b class="req">*</b></label><textarea name="waktu" rows="3" required></textarea></div>
+          <div class="f-field"><label>28. Jika terjadi perbedaan pendapat dengan pengurus lain, bagaimana Anda menyikapinya? <b class="req">*</b></label><textarea name="konflik" rows="3" required></textarea></div>
+          <div class="f-field"><label>29. Bersedia mengikuti rapat, kegiatan, dan agenda organisasi sesuai kesepakatan? <b class="req">*</b></label>
+            <div class="radio-row"><label class="radio-item"><input type="radio" name="bersediaAgenda" value="Ya, bersedia" required> Ya, bersedia</label><label class="radio-item"><input type="radio" name="bersediaAgenda" value="Tidak bersedia"> Tidak bersedia</label></div></div>
+          <div class="f-field"><label>30. Bersedia menaati AD/ART, MKO, GBPK, dan ketentuan lain yang berlaku? <b class="req">*</b></label>
+            <div class="radio-row"><label class="radio-item"><input type="radio" name="bersediaAturan" value="Ya, bersedia" required> Ya, bersedia</label><label class="radio-item"><input type="radio" name="bersediaAturan" value="Tidak bersedia"> Tidak bersedia</label></div></div>
+        </fieldset>
+
+        <!-- F. PERNYATAAN KOMITMEN -->
+        <fieldset class="form-section">
+          <h3>F. Pernyataan Komitmen</h3>
+          <p class="commit-text">Dengan mendaftarkan diri sebagai calon pengurus BEM FITS IPI Garut periode 2026–2027, saya menyatakan bahwa seluruh data dan berkas yang saya sampaikan adalah benar. Saya bersedia mengikuti proses seleksi, menerima penempatan departemen berdasarkan kebutuhan organisasi dan hasil seleksi, serta menjalankan tugas dan tanggung jawab sebagai pengurus apabila dinyatakan diterima.</p>
+          <label class="checkbox big">
+            <input type="checkbox" name="persetujuan" value="Setuju" required>
+            <span class="box"></span>
+            31. Saya telah membaca, memahami, dan menyetujui pernyataan komitmen di atas.
+          </label>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary full btn-lg">Kirim Pendaftaran</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ================= PAGE: DASHBOARD ADMIN ================= -->
+<main id="page-admin" class="page">
+  <section class="page-hero">
+    <span class="tag">Khusus Role Admin</span>
+    <h1>Dashboard <span class="grad">Admin BEM FITS</span></h1>
+    <p>Kelola data pendaftar Open Recruitment dan pantau publikasi berita.</p>
+  </section>
+  <section class="section">
+    <div class="admin-stats" id="adminStats"></div>
+    <div class="admin-toolbar">
+      <h3>📋 Data Pendaftar OPREC 2026–2027</h3>
+      <a href="#/berita" data-link class="btn btn-outline btn-sm">Kelola Berita →</a>
+    </div>
+    <div id="adminTableWrap"></div>
+  </section>
+</main>
+
+<!-- ===== POPUP KONFIRMASI OPREC ===== -->
+<div class="oprec-popup-backdrop" id="oprecPopup" hidden role="dialog" aria-modal="true" aria-labelledby="oprecPopupTitle">
+  <div class="oprec-popup">
+    <div class="oprec-popup-check" aria-hidden="true">✓</div>
+    <h2 id="oprecPopupTitle">Pendaftaran Berhasil Terkirim!</h2>
+    <p>Semua data dan berkas pendaftaran kamu sudah berhasil disimpan ke database.</p>
+    <p class="oprec-popup-number" id="oprecPopupNumber"></p>
+    <button type="button" class="btn btn-primary" id="oprecPopupClose">Mengerti</button>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo-bem.png" alt="Logo BEM FITS">
+      <h3>BEM FITS IPI Garut</h3>
+      <p>Badan Eksekutif Mahasiswa Fakultas Ilmu Terapan dan Sains Institut Pendidikan Indonesia Garut.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/bem_fitsipi/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.92 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+        <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <a href="#/beranda" data-link>Beranda</a>
+      <a href="#/profil" data-link>Profil</a>
+      <a href="#/berita" data-link>Berita</a>
+      <a href="#/layanan" data-link>Layanan Mahasiswa</a>
+      <a href="#/kepengurusan" data-link>Kepengurusan</a>
+    </div>
+    <div class="footer-col">
+      <h4>Layanan</h4>
+      <a href="#/layanan" data-link>Kanal Aspirasi</a>
+      <a href="#/layanan" data-link>Bank Materi</a>
+      <a href="#/layanan" data-link>Ruang Konsultasi</a>
+      <a href="#/layanan" data-link>Advokasi</a>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <p>Sekretariat BEM FITS<br>Institut Pendidikan Indonesia Garut<br>Jl. Terusan Pahlawan No.32, RW.01, Sukagalih, Kec. Tarogong Kidul, Kabupaten Garut, Jawa Barat 44151</p>
+      <p>bemfits.ipi@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 BEM FITS IPI Garut.</p>
+  </div>
+</footer>
+
+<!-- ===== MODAL LAYANAN ===== -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Tutup">&times;</button>
+    <h3 id="modalTitle">Formulir</h3>
+    <form id="modalForm" class="modal-form">
+      <label>Nama Lengkap<input type="text" required placeholder="Masukkan nama lengkap"></label>
+      <label>NIM<input type="text" required placeholder="Contoh: 2345100001"></label>
+      <label>Program Studi
+        <select required>
+          <option value="">Pilih program studi</option>
+          <option>D4 Teknologi Rekayasa Perangkat Lunak</option>
+          <option>D4 Akuntansi Sektor Publik</option>
+          <option>D4 Pengelolaan Perhotelan & Jasa Pariwisata</option>
+          <option>D4 Teknologi Produksi Tanaman Pangan</option>
+          <option>D3 Teknik Mesin</option>
+          <option>D3 Manajemen Pemasaran</option>
+        </select>
+      </label>
+      <label>Pesan / Keperluan<textarea rows="4" required placeholder="Tulis detail keperluanmu di sini..."></textarea></label>
+      <button type="submit" class="btn btn-primary full">Kirim Permohonan</button>
+    </form>
+    <div class="modal-success" id="modalSuccess" hidden>
+      <div class="success-check">✓</div>
+      <h3>Permohonan Terkirim!</h3>
+      <p>Terima kasih. Tim kami akan menghubungimu melalui email kampus maksimal 3×24 jam kerja.</p>
+      <button class="btn btn-outline" id="modalDone">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL TAMBAH BERITA (ADMIN) ===== -->
+<div class="modal-backdrop" id="newsModalBackdrop">
+  <div class="modal">
+    <button class="modal-close" id="newsModalClose" aria-label="Tutup">&times;</button>
+    <h3>Terbitkan Berita Baru</h3>
+    <form id="newsForm" class="modal-form">
+      <label>Kategori
+        <select id="nfCat" required>
+          <option value="kegiatan">Kegiatan</option>
+          <option value="pengumuman">Pengumuman</option>
+          <option value="prestasi">Prestasi</option>
+        </select>
+      </label>
+      <label>Judul Berita<input type="text" id="nfTitle" required maxlength="120" placeholder="Judul berita"></label>
+      <label>Tanggal<input type="date" id="nfDate" required></label>
+      <label>Deskripsi<textarea id="nfDesc" rows="4" required placeholder="Ringkasan berita..."></textarea></label>
+      <button type="submit" class="btn btn-primary full">Terbitkan Berita</button>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="bem-api.js?v=sb2"></script>
+<script src="script.js?v=sb2"></script>
+</body>
+</html>

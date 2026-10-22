@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — BEM FITS IPI Garut</title>
+<link rel="icon" type="image/png" href="logo-bem.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="login.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<base target=" ">
+</head>
+<body class="login-body">
+
+<div class="login-wrap">
+  <!-- PANEL KIRI -->
+  <aside class="login-side">
+    <div class="side-orbs">
+      <div class="s-orb s-1"></div>
+      <div class="s-orb s-2"></div>
+    </div>
+    <a href="index.html#/beranda" class="side-brand">
+      <img src="logo-bem.png" alt="Logo BEM FITS">
+      <div>
+        <strong>BEM FITS</strong>
+        <span>IPI Garut</span>
+      </div>
+    </a>
+    <div class="side-content">
+      <h1>Selamat<br>Datang <span class="grad-teal">Kembali!</span></h1>
+      <p>Masuk untuk mengakses portal mahasiswa, layanan aspirasi, bank materi, dan informasi terbaru BEM FITS IPI Garut.</p>
+    </div>
+    <p class="side-foot">© 2026 BEM FITS IPI Garut</p>
+  </aside>
+
+  <!-- PANEL KANAN -->
+  <main class="login-main">
+    <div class="login-card">
+      <a href="index.html#/beranda" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Kembali ke Beranda
+      </a>
+
+      <div class="login-head">
+        <img src="logo-bem.png" alt="Logo BEM FITS" class="login-logo">
+        <h2>Masuk Portal</h2>
+        <p>Masuk untuk mengakses layanan mahasiswa. Belum punya akun? Buat akun baru di bawah.</p>
+      </div>
+
+      <form id="loginForm" class="login-form" novalidate>
+        <div class="field">
+          <label for="nim">NIM / Email Mahasiswa</label>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <input type="text" id="nim" placeholder="Masukan NIM dan Email" autocomplete="username">
+          </div>
+          <small class="err" id="errNim"></small>
+        </div>
+
+        <div class="field">
+          <label for="password">Kata Sandi</label>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input type="password" id="password" placeholder="Masukkan kata sandi" autocomplete="current-password">
+            <button type="button" class="toggle-pass" id="togglePass" aria-label="Tampilkan sandi">
+              <svg id="eyeOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg id="eyeClosed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12A3 3 0 1 1 9.88 9.88"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
+          <small class="err" id="errPass"></small>
+        </div>
+
+        <div class="form-row">
+          <label class="checkbox">
+            <input type="checkbox" id="remember">
+            <span class="box"></span> Ingat saya
+          </label>
+          <a href="#" class="forgot" id="forgotLink">Lupa kata sandi?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary full" id="btnLogin">
+          <span class="btn-label">Masuk</span>
+          <span class="btn-spinner" hidden></span>
+        </button>
+
+        <div class="divider"><span>atau</span></div>
+
+        <a href="register.html" id="registerLink" class="btn btn-outline full">Aktivasi Akun</a>
+      </form>
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="bem-api.js?v=sb2"></script>
+<script src="login.js?v=sb2"></script>
+<script>if(new URLSearchParams(location.search).get("redirect")==="oprec"){var r=document.getElementById("registerLink");if(r)r.href="register.html?redirect=oprec";}</script>
+</body>
+</html>

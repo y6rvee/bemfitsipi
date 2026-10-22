@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berita — BEM FITS</title>
+<link rel="icon" type="image/png" href="logo-bem.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body{background:#f5f7fb;color:#153252;padding-top:78px}
+.detail-main{max-width:1240px;margin:auto;padding:34px 28px 80px}
+.breadcrumb{display:flex;align-items:center;gap:10px;color:#657993;font-size:.9rem;margin:0 0 24px}
+.breadcrumb a{color:#1685d3}
+.detail-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,.95fr);gap:28px;align-items:start}
+.article-hero{width:100%;aspect-ratio:16/8.1;object-fit:cover;border-radius:12px;border:1px solid #dce5ef}
+.article-title{font-size:clamp(1.7rem,3vw,2.45rem);line-height:1.25;color:#12385f;margin:22px 0 14px;letter-spacing:-.025em}
+.article-meta{display:flex;flex-wrap:wrap;gap:18px;color:#526984;font-size:.92rem;margin-bottom:22px}
+.article-meta span{display:inline-flex;gap:8px;align-items:center}
+.article-category{display:inline-block;background:#e4f3ff;color:#0878bd;padding:6px 12px;border-radius:99px;font-size:.78rem;font-weight:800;margin-bottom:8px}
+.article-content{font-size:1.02rem;line-height:1.9;color:#334d6d;white-space:pre-line}
+.article-content p{margin:0 0 16px}
+.info-card{background:#fff;border:1px solid #dbe5f0;border-radius:12px;overflow:hidden;box-shadow:0 8px 28px rgba(20,55,90,.04)}
+.info-card h2{font-size:1.25rem;padding:20px 22px;background:#f3f7fc;color:#173c63}
+.info-body{padding:8px 22px 22px}
+.info-row{display:grid;grid-template-columns:46px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid #e1e9f2}
+.info-row:last-child{border-bottom:0}
+.info-icon{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#edf4fb;color:#163e68;font-size:1.25rem}
+.info-label{font-size:.82rem;font-weight:800;color:#3b5675;margin-bottom:7px}
+.info-value{font-size:.94rem;line-height:1.8;color:#244668;overflow-wrap:anywhere}
+.back-link{display:inline-flex;align-items:center;gap:8px;color:#087fc4;font-weight:700;margin-top:28px}
+.detail-footer{padding:25px;text-align:center;color:#72839a;font-size:.85rem;border-top:1px solid #e0e7f0;background:#fff}
+@media(max-width:1280px){body{padding-top:66px}}
+@media(max-width:800px){.detail-layout{grid-template-columns:1fr}.detail-main{padding:24px 18px 54px}.info-card{order:2}}
+@media(max-width:520px){.article-meta{gap:10px;flex-direction:column}.article-hero{aspect-ratio:4/3}}
+</style>
+</head>
+<body>
+<!-- ===== NAVBAR (sama dengan beranda) ===== -->
+<header class="navbar scrolled" id="navbar">
+  <a href="index.html#/beranda" class="nav-brand">
+    <img src="logo-bem.png" alt="Logo BEM FITS">
+    <div class="brand-text">
+      <strong>BEM FITS</strong>
+      <span>IPI Garut</span>
+    </div>
+  </a>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html#/beranda">Beranda</a>
+    <a href="index.html#/profil">Profil</a>
+    <a href="index.html#/berita" class="active">Berita</a>
+    <a href="index.html#/layanan">Layanan Mahasiswa</a>
+    <a href="index.html#/kepengurusan">Kepengurusan</a>
+    <a href="index.html#/oprec">Open Recruitment</a>
+    <a href="admin.html" id="navAdminLink" hidden>Dashboard Admin</a>
+  </nav>
+
+  <div class="nav-actions">
+    <div class="nav-auth">
+      <a href="index.html#/profil" id="profileName" class="user-only profile-nav-link" style="display:none;" aria-label="Profil akun"></a>
+      <a href="login.html" id="loginNavLink" class="btn-login guest-only">Login</a>
+      <button id="btnLogoutAction" class="user-only" style="display:none;" onclick="logout()">Logout</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+<main class="detail-main">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html#/beranda">⌂ Beranda</a><span>›</span><a href="index.html#/berita">Berita</a><span>›</span><span>Detail Berita</span></nav>
+  <div class="detail-layout">
+    <article id="articleBox">
+      <img class="article-hero" id="aHero" alt="" hidden>
+      <span class="article-category" id="aCat"></span>
+      <h1 class="article-title" id="aTitle">Memuat…</h1>
+      <div class="article-meta"><span>♙ <span id="aUser"></span></span><span>▦ <span id="aDate"></span></span></div>
+      <div class="article-content" id="aBody"></div>
+      <a class="back-link" href="index.html#/berita">← Kembali ke semua berita</a>
+    </article>
+    <aside class="info-card">
+      <h2>Informasi Berita</h2>
+      <div class="info-body">
+        <div class="info-row"><div class="info-icon">♙</div><div><div class="info-label">Nama Pengupload</div><div class="info-value" id="iUser"></div></div></div>
+        <div class="info-row"><div class="info-icon">▦</div><div><div class="info-label">Tanggal Publikasi</div><div class="info-value" id="iDate"></div></div></div>
+        <div class="info-row"><div class="info-icon">▤</div><div><div class="info-label">Judul Berita</div><div class="info-value" id="iTitle"></div></div></div>
+        <div class="info-row"><div class="info-icon">≡</div><div><div class="info-label">Deskripsi Berita</div><div class="info-value" id="iDesc"></div></div></div>
+      </div>
+    </aside>
+  </div>
+</main>
+<footer class="detail-footer">© <span id="yr">2026</span> BEM FITS IPI Garut. Seluruh hak cipta dilindungi.</footer>
+<script>
+/* ===== NAVBAR: drawer, sesi login, logout (sama seperti beranda) ===== */
+(function () {
+  var NAV_BREAKPOINT = 1280; // sama dengan breakpoint drawer di style.css
+  var hamburgerBtn = document.getElementById('hamburger');
+  var navLinksEl = document.getElementById('navLinks');
+  var navOverlay = document.getElementById('navOverlay');
+  var navAuthEl = document.querySelector('.nav-auth');
+  var navActionsEl = document.querySelector('.nav-actions');
+
+  function setMenu(open) {
+    hamburgerBtn.classList.toggle('open', open);
+    navLinksEl.classList.toggle('open', open);
+    navOverlay.classList.toggle('show', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  hamburgerBtn.addEventListener('click', function () { setMenu(!navLinksEl.classList.contains('open')); });
+  navOverlay.addEventListener('click', function () { setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  navLinksEl.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+
+  var navMQ = window.matchMedia('(max-width:' + NAV_BREAKPOINT + 'px)');
+  function placeNavAuth() {
+    if (navMQ.matches) navLinksEl.appendChild(navAuthEl);
+    else navActionsEl.insertBefore(navAuthEl, hamburgerBtn);
+    if (!navMQ.matches) setMenu(false);
+  }
+  placeNavAuth();
+  if (navMQ.addEventListener) navMQ.addEventListener('change', placeNavAuth);
+  else navMQ.addListener(placeNavAuth);
+
+  async function checkUserRole() {
+    var session = { logged_in: false };
+    try {
+      session = await window.bem.session();
+    } catch (e) {}
+    var isLoggedIn = session.logged_in === true;
+    var role = isLoggedIn ? session.role : '';
+    var name = isLoggedIn ? session.nama : '';
+
+    document.querySelectorAll('.guest-only').forEach(function (el) { el.style.display = isLoggedIn ? 'none' : ''; });
+    document.querySelectorAll('.user-only').forEach(function (el) { el.style.display = isLoggedIn ? '' : 'none'; });
+
+    var profileName = document.getElementById('profileName');
+    profileName.textContent = name ? 'Akun · ' + name : 'Akun';
+    profileName.style.display = isLoggedIn ? 'inline-flex' : 'none';
+    profileName.title = name ? 'Profil ' + name : 'Profil akun';
+    document.getElementById('navAdminLink').hidden = !(isLoggedIn && role === 'admin');
+  }
+  document.addEventListener('DOMContentLoaded', checkUserRole);
+
+  window.logout = async function () {
+    try { await window.bem.logout(); } catch (e) {}
+    window.location.href = 'index.html#/beranda';
+  };
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="bem-api.js?v=sb2"></script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  $('yr').textContent = new Date().getFullYear();
+  var CAT = { kegiatan: 'Kegiatan', pengumuman: 'Pengumuman', prestasi: 'Prestasi' };
+  var SAMPLE = {
+    judul: 'BEM FITS IPI Garut Gelar Kegiatan Peningkatan Literasi Mahasiswa', kategori: 'kegiatan',
+    deskripsi: 'Badan Eksekutif Mahasiswa (BEM) Fakultas Ilmu Terapan dan Sains (FITS) IPI Garut kembali menyelenggarakan kegiatan peningkatan literasi mahasiswa yang bertempat di lingkungan kampus IPI Garut. Kegiatan ini dihadiri oleh perwakilan mahasiswa, dosen, serta pengurus BEM FITS.\n\nDalam sambutannya, perwakilan BEM FITS menyampaikan bahwa kegiatan ini bertujuan untuk menumbuhkan minat baca dan memperluas wawasan mahasiswa, baik dalam bidang akademik maupun non-akademik.\n\nSelain pemaparan materi, kegiatan ini juga diisi dengan sesi diskusi interaktif bersama peserta. Kegiatan diharapkan menjadi langkah awal dalam membentuk budaya literasi yang lebih kuat di lingkungan FITS IPI Garut.',
+    tanggal: '2025-10-20', nama_pengupload: 'Muhammad Faiz Rizkulloh', gambar_url: 'berita-seminar-literasi.jpeg'
+  };
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function render(n) {
+    var d = n.tanggal ? new Date(n.tanggal + 'T00:00:00') : null;
+    var dateText = d && !isNaN(d) ? d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Tanggal tidak tersedia';
+    var user = n.nama_pengupload || 'BEM FITS', desc = String(n.deskripsi || '').trim();
+    document.title = n.judul + ' — Berita BEM FITS';
+    if (n.gambar_url) { $('aHero').src = n.gambar_url; $('aHero').alt = n.judul; $('aHero').hidden = false; }
+    $('aCat').textContent = CAT[String(n.kategori).toLowerCase()] || 'Berita';
+    $('aTitle').textContent = n.judul;
+    $('aUser').textContent = user; $('aDate').textContent = dateText;
+    $('iUser').textContent = user; $('iDate').textContent = dateText; $('iTitle').textContent = n.judul;
+    $('iDesc').textContent = desc.length > 420 ? desc.slice(0, 419) + '…' : desc;
+    $('aBody').innerHTML = desc.split(/\n{2,}/).filter(function (p) { return p.trim(); }).map(function (p) { return '<p>' + esc(p.trim()).replace(/\n/g, '<br>') + '</p>'; }).join('');
+  }
+  var id = parseInt(new URLSearchParams(location.search).get('id'), 10);
+  (async function () {
+    var n = null;
+    if (id) { try { n = await window.bem.getNewsById(id); } catch (e) { console.error(e); } }
+    render(n || SAMPLE);
+  })();
+})();
+</script>
+</body>
+</html>
